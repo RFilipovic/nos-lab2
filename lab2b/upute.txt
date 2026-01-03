@@ -1,0 +1,8 @@
+# Reload
+sudo ./unload_shofer
+sudo ./load_shofer
+
+# Test sa 10 karaktera
+echo "0123456789" > /dev/shofer_in
+./test/ioctl /dev/shofer_control 5
+dd if=/dev/shofer_out bs=1 count=5 2>/dev/null
