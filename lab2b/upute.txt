@@ -6,3 +6,7 @@ sudo ./load_shofer
 echo "0123456789" > /dev/shofer_in
 ./test/ioctl /dev/shofer_control 5
 dd if=/dev/shofer_out bs=1 count=5 2>/dev/null
+
+# Overflow
+echo "0123456789012345678901234567890123456789012345678901234567890123" > /dev/shofer_in
+echo "ABCDEF" > /dev/shofer_in
