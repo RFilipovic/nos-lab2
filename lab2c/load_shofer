@@ -1,0 +1,14 @@
+#!/bin/sh
+module="shofer"
+device="shofer"
+mode="666"
+
+/sbin/insmod ./$module.ko $* || exit 1
+
+major=$(awk "\$2==\"$module\" {print \$1}" /proc/devices)
+
+# For pipe, we create only one device
+rm -f /dev/${device}
+mknod /dev/${device} c $major 0
+chmod $mode /dev/${device}
+echo "Created device /dev/${device}"
