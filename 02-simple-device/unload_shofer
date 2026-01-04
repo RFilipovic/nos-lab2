@@ -1,7 +1,0 @@
-#!/bin/sh
-module="shofer"
-device="shofer"
-
-/sbin/rmmod $module || exit 1
-
-rm -f /dev/${device}

@@ -1,4 +1,4 @@
-/* simple program that uses ioctl to send a command to given file */
+/* jednostavan program koji koristi ioctl za slanje naredbe zadanoj datoteci */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,7 +6,7 @@
 #include <fcntl.h>
 #include <asm/ioctl.h>
 
-#include "../config.h" /* format for third argument of ioctl */
+#include "../config.h" /* format trećeg argumenta za ioctl */
 
 int main(int argc, char *argv[])
 {
@@ -32,10 +32,10 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
-	/* create request */
+	/* kreiraj zahtjev */
 	request = _IOC(_IOC_WRITE, SHOFER_IOCTL_TYPE, SHOFER_IOCTL_NR, sizeof(struct shofer_ioctl));
 
-	/* command (COPY) and count are passed with struct_ioctl as third argument to ioctl */
+	/* naredba (COPY) i vrijednost count prosljeđuju se u strukturi shofer_ioctl kao treći argument ioctl-a */
 	cmd.command = SHOFER_IOCTL_COPY;
 	cmd.count = num;
 	

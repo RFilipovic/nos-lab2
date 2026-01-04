@@ -1,15 +1,15 @@
 CC = gcc
 CFLAGS = -Wall -O2
 
-TARGETS = citac pisac
+TARGETS = reader writer
 
 all: $(TARGETS)
 
-citac: citac.c
-	$(CC) $(CFLAGS) -o citac citac.c
+reader: reader.c
+	$(CC) $(CFLAGS) -o reader reader.c
 
-pisac: pisac.c
-	$(CC) $(CFLAGS) -o pisac pisac.c
+writer: writer.c
+	$(CC) $(CFLAGS) -o writer writer.c
 
 clean:
 	rm -f $(TARGETS)
